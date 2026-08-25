@@ -1,0 +1,805 @@
+:root {
+    --mclaren-orange: #FF8000;
+    --dark-bg: #000000;
+    --light-bg: #141414;
+    /* Switched to dark grey for "Light" sections */
+    --text-main: #f0f0f0;
+    /* Light text for dark backgrounds */
+    --text-light: #aaa;
+    /* Slightly dimmer text */
+    --font-primary: 'Inter', sans-serif;
+    /* Unified to Gothic/Sans-serif */
+    --font-body: 'Inter', sans-serif;
+    /* Keep sans for body copy */
+    --font-jp: 'Noto Sans JP', sans-serif;
+}
+
+
+.mg-top60 {
+    margin-top: 60px !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    pointer-events: auto;
+    /* Ensure clicks still work for gallery */
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    line-height: 2.0;
+    background-color: var(--dark-bg);
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    /* Lighter weight for elegance */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    /* Wide tracking */
+    line-height: 1.3;
+    color: white;
+}
+
+p {
+    font-family: var(--font-jp);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.jp-sub {
+    font-family: var(--font-jp);
+    font-weight: 700;
+    margin: 10px 0 20px;
+}
+
+
+nav {
+    background-color: #000;
+    padding: 10px 0;
+    width: 100%;
+    z-index: 10;
+    position: relative;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 550px;
+    padding: 40px 30px;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* Utilities */
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section {
+    padding: 120px 0;
+    /* More spacing for luxury feel */
+}
+
+.dark-bg {
+    background-color: #000;
+    color: var(--text-main);
+}
+
+.light-bg {
+    background-color: #111;
+    /* Changed from variable to explicit dark grey */
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+    /* Spotlight effect */
+    color: var(--text-main);
+}
+
+.orange-text {
+    color: var(--mclaren-orange);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 14px 40px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    /* Slightly rounded */
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--mclaren-orange);
+    color: white;
+    border: 2px solid var(--mclaren-orange);
+}
+
+.btn-primary:hover {
+    background: #E66000;
+    border-color: #E66000;
+    box-shadow: 0 0 20px rgba(255, 128, 0, 0.4);
+    /* Orange glow */
+}
+
+/* Adapted for dark theme */
+.btn-outline-dark {
+    background: transparent;
+    color: white;
+    /* was var(--dark-bg) */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    /* Thinner, elegant border */
+}
+
+.btn-outline-dark:hover {
+    background: white;
+    color: black;
+    border-color: white;
+}
+
+.btn-outline-light {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-outline-light:hover {
+    background: white;
+    color: var(--dark-bg);
+}
+
+.btn-xl {
+    padding: 18px 30px;
+    font-size: 1.2rem;
+}
+
+/* Hero */
+.hero {
+    height: 90vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    /* Move content to bottom */
+    padding-bottom: 80px;
+    /* Add breathing room */
+    color: white;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 100%),
+        linear-gradient(to top, rgba(0, 0, 0, 1) 0%, transparent 40%)
+        /* Vignette from bottom */
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    .hero-img {
+        object-position: top;
+        object-fit: cover;
+        height: 70%;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.hero-text-block {
+    max-width: 700px;
+}
+
+.eyebrow {
+    color: var(--mclaren-orange);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+/* Overview */
+.overview .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    letter-spacing: 0.1em;
+}
+
+.overview .section-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    color: var(--mclaren-orange);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.overview .section-body {
+    font-size: 1.1rem;
+    max-width: 800px;
+    /* Widened slightly */
+    margin: 0 auto;
+    font-family: var(--font-primary);
+    line-height: 2.2;
+}
+
+/* Editions */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.grid-3-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.grid-3-col>.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tech-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.grid-3-col .tech-img {
+    margin-top: auto;
+}
+
+
+
+.align-center {
+    align-items: center;
+}
+
+.product-img {
+    width: 100%;
+    border-radius: 0;
+    /* Sharp edges for premium feel */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+    /* Deep, heavy shadow for depth */
+}
+
+.label {
+    display: block;
+    font-family: var(--font-primary);
+    font-weight: 400;
+    /* Thinner */
+    font-size: 1rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.2em;
+    /* Wider */
+    color: var(--mclaren-orange);
+    /* Accent color */
+}
+
+.price-display {
+    font-family: var(--font-primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: 0.1em;
+}
+
+.tax-note {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-left: 10px;
+    color: #888;
+}
+
+.edition h2 {
+    font-family: var(--font-jp);
+    /* Use Japanese font for the headline part usually mixed */
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+}
+
+.edition p {
+    font-size: 1rem;
+    color: #aaa;
+    /* Visible on dark */
+    margin-bottom: 2rem;
+}
+
+.dark-bg .edition p {
+    color: #aaa;
+}
+
+/* Heritage/About */
+.heritage {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a subtle background graphic if possible, or just dark */
+.heritage-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #222 0%, #000 100%);
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.relative-z {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.tech-img {
+    max-width: 600px;
+    width: 100%;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.sec2-img {
+    width: 80%;
+    margin: 80px 0px 0px;
+}
+
+.sec7-img {
+    margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+    .sec2-img {
+        width: 100%;
+    }
+
+    .sec7-con02-img,
+    .sec7-con03-img {
+        padding: 0px;
+    }
+}
+
+.about-img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/* Responsive */
+/* Responsive */
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 0;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px 15px;
+        /* Reduced horizontal padding to fit text */
+        font-size: 0.9rem;
+        /* Slightly smaller for long Japanese text */
+        box-sizing: border-box;
+        white-space: nowrap;
+        /* Try to keep one line if possible */
+        text-align: center;
+    }
+
+    .btn-xl {
+        padding: 16px 20px;
+        /* Reduce padding on mobile to fit screen */
+        width: 100%;
+        /* Make full width on mobile for better UX */
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .grid-2-col,
+    .grid-3-col {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        width: 100%;
+        /* Ensure container doesn't stretch */
+    }
+
+    .grid-2-col>*,
+    .grid-3-col>* {
+        min-width: 0;
+        /* Prevent grid items from ignoring max-width of container */
+        width: 100%;
+    }
+
+    /* Stack layout for mobile */
+    .hero {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+        padding: 0;
+        background-color: #000;
+    }
+
+    .hero-bg {
+        position: relative;
+        width: 100%;
+        height: auto;
+        /* Let image define height */
+        min-height: 0;
+    }
+
+    .hero-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        /* Show full image */
+        object-position: center;
+    }
+
+    .hero-content {
+        padding: 20px 24px 40px;
+        width: 100%;
+        background-color: #000;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .hero-desc {
+        font-size: 1rem;
+    }
+
+    .eyebrow {
+        font-size: 0.9rem;
+    }
+
+    .hero-text-block {
+        margin: 0 auto;
+    }
+
+    .reverse-order-mobile .image-col {
+        order: -1;
+    }
+
+    .logo img {
+        width: 300px;
+        padding: 30px;
+        /* Smaller logo on mobile */
+    }
+}
+
+/* Gallery Styles */
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gallery-thumbs {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    /* Allow scrolling on mobile */
+    padding-bottom: 10px;
+    /* Space for scrollbar if any */
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+}
+
+.thumb-img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.thumb-img:hover {
+    opacity: 0.8;
+}
+
+.thumb-img.active {
+    border-color: var(--mclaren-orange);
+}
+
+.main-img {
+    transition: opacity 0.3s ease;
+}
+
+/* Heritage Full Image */
+.heritage-image-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.heritage-full-img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .heritage-full-img {
+        height: 50vh;
+    }
+}
+
+/* --- ANIMATIONS START --- */
+
+/* Base Transitions */
+.anim-target {
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* Utilities for Hidden States */
+.anim-hidden {
+    opacity: 0;
+}
+
+.anim-up {
+    transform: translateY(20px);
+}
+
+.anim-down {
+    transform: translateY(-20px);
+}
+
+.anim-left {
+    transform: translateX(-20px);
+}
+
+.anim-right {
+    transform: translateX(20px);
+}
+
+.anim-scale-up-init {
+    transform: scale(1.03);
+}
+
+.anim-scale-x-zero {
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.anim-blur {
+    filter: blur(2px);
+}
+
+/* Visible State */
+.anim-visible {
+    opacity: 1 !important;
+    transform: translate(0) scale(1) !important;
+    filter: blur(0) !important;
+}
+
+/* Durations */
+.duration-400 {
+    transition-duration: 0.4s;
+}
+
+.duration-600 {
+    transition-duration: 0.6s;
+}
+
+.duration-800 {
+    transition-duration: 0.8s;
+}
+
+/* Delays */
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-120 {
+    transition-delay: 0.12s;
+}
+
+.delay-150 {
+    transition-delay: 0.15s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+.delay-400 {
+    transition-delay: 0.4s;
+}
+
+.delay-500 {
+    transition-delay: 0.5s;
+}
+
+/* Specific Animations */
+
+/* Pulse for Final CTA */
+@keyframes pulse-soft {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse-anim {
+    animation: pulse-soft 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+    /* Interval handled via animation-delay on JS or CSS keyframe tweaking? 
+       CSS keyframes don't support "wait 5s". 
+       Better to use a long duration with short active time? 
+       Or standard animation-delay/iteration-count? 
+       User said: "interval 4-5s". 1.2s duration.
+       Let's make keyframes 20% active, 80% static. 
+       Calculation: 1.2s active / 5s total = 24%.
+    */
+    animation-duration: 5s;
+}
+
+@keyframes pulse-interval {
+
+    0%,
+    20% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse-anim {
+    animation-name: pulse-interval;
+}
+
+
+/* Hover Effects Section 07 */
+.grid-3-col .container {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+@media (min-width: 769px) {
+    .grid-3-col .container:hover {
+        transform: translateY(-6px);
+        /* box-shadow: 0 10px 20px rgba(0,0,0,0.3); Already has shadow? No. Add subtle one. */
+        /* But user said "box-shadow 強化 (Enhance)". 
+           If original has none, add it. If has, deepen it.
+        */
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-3-col .container:active {
+        transform: scale(1.03);
+        transition: transform 0.2s ease;
+    }
+}
+
+/* Hover for Final CTA (PC) */
+.btn-primary:not(.pulse-anim):hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 128, 0, 0.6);
+}
+
+/* Allow pulse to be overridden by hover? 
+   No, usually pulse stops on hover or combining is complex.
+   User request: "Hover (PC) scale 1.05".
+   I will prioritize hover.
+*/
+
+/* Mobile Adjustments for Animations */
+@media (max-width: 768px) {
+    .mobile-fade-up {
+        transform: translateY(20px);
+    }
+
+    .anim-visible.mobile-fade-up {
+        transform: translateY(0);
+    }
+
+    /* Disable complex transforms if needed, but opacity+translate is permitted */
+}
